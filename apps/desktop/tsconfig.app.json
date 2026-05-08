@@ -7,7 +7,6 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -15,11 +14,22 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "@/*": ["./src/*"],
+      "@lifehacker/core": ["../../packages/core/src"],
+      "@lifehacker/core/*": ["../../packages/core/src/*"],
+      "@lifehacker/storage": ["../../packages/storage/src"],
+      "@lifehacker/storage/*": ["../../packages/storage/src/*"],
+      "@lifehacker/ai": ["../../packages/ai/src"],
+      "@lifehacker/ai/*": ["../../packages/ai/src/*"],
+      "@lifehacker/plugins": ["../../packages/plugins/src"],
+      "@lifehacker/plugins/*": ["../../packages/plugins/src/*"]
+    }
   },
   "include": ["src"]
 }

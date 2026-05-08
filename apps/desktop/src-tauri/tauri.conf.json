@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "lifehacker-os",
   "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "com.lifehacker.os",
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:5173"
@@ -11,8 +11,10 @@
     "windows": [
       {
         "title": "Lifehacker OS",
-        "width": 800,
-        "height": 600,
+        "width": 1100,
+        "height": 720,
+        "minWidth": 800,
+        "minHeight": 500,
         "resizable": true,
         "fullscreen": false
       }
