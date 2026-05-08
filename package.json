@@ -1,0 +1,12 @@
+{
+  "name": "lifehacker-os",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A lifelong personal operating system",
+  "scripts": {
+    "dev": "pnpm --filter @lifehacker/desktop dev",
+    "build": "pnpm --filter @lifehacker/desktop build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  }
+}

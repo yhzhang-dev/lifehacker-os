@@ -16,7 +16,15 @@ Calm, Minimal, Reflective, Long-term thinking, Personal sovereignty
 "This system exists to help its owner understand life over decades."
 
 ## Current State
-Pre-init phase. Only documentation exists (6 markdown files). No code, no dependencies, no Tauri project scaffolded.
+Restructured into monorepo layout: .claude/ (AI space), docs/, apps/, packages/. Ready for Tauri scaffolding.
+
+## Project Structure
+```
+.claude/       ← AI brain (CLAUDE.md, memory/, identity.md, soul.md)
+docs/          ← Human & AI readable docs (PROJECT.md, ROADMAP.md, ARCHITECTURE.md, decisions/)
+apps/          ← Applications (desktop/ = Tauri app)
+packages/      ← Reusable modules (core, storage, ai, plugins)
+```
 
 ## 4-Phase Roadmap
 1. Core System — Tauri setup, local database, basic UI shell

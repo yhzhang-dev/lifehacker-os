@@ -1,0 +1,19 @@
+{
+  "name": "@lifehacker/storage",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Storage bridge and query hooks",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lifehacker/core": "workspace:*",
+    "@tauri-apps/api": "^2"
+  },
+  "devDependencies": {
+    "typescript": "^5.5"
+  }
+}
