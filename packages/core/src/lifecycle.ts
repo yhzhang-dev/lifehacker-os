@@ -1,7 +1,7 @@
 import { EventBusImpl } from "./events";
 import { PluginRegistry } from "./plugin-registry";
 import { ConfigManager } from "./config";
-import type { PluginContext, EventBus, StorageAPI, ConfigAPI } from "./types";
+import type { PluginContext, EventBus, StorageAPI } from "./types";
 
 export interface AppContext {
   events: EventBus;

@@ -10,11 +10,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@lifehacker/ai": "workspace:*",
     "@lifehacker/core": "workspace:*",
-    "@lifehacker/storage": "workspace:*",
-    "@lifehacker/ai": "workspace:*"
+    "@lifehacker/storage": "workspace:*"
   },
   "devDependencies": {
+    "@types/react": "^19.2.14",
     "typescript": "^5.5"
   }
 }

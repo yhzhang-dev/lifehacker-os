@@ -1,3 +1,5 @@
+import type { ComponentType } from "react";
+
 /** Unique plugin identifier in kebab-case (e.g. "life-events") */
 export type PluginId = string;
 
@@ -31,7 +33,7 @@ export interface ViewRegistration {
   id: ViewId;
   label: string;
   icon?: string;
-  component: React.ComponentType;
+  component: ComponentType;
   position: "nav" | "main";
 }
 

@@ -26,7 +26,7 @@ export function ScreenManager() {
   useEffect(() => {
     const fn = () => forceUpdate((n) => n + 1);
     listeners.add(fn);
-    return () => listeners.delete(fn);
+    return () => { listeners.delete(fn); };
   }, []);
 
   const activeView = currentViews.find((v) => v.id === currentViewId) ?? currentViews[0];

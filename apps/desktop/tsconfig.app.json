@@ -31,5 +31,6 @@
       "@lifehacker/plugins/*": ["../../packages/plugins/src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/components/ui"]
 }

@@ -1,4 +1,9 @@
+import type { ComponentType } from "react";
 import type { PluginManifest } from "@lifehacker/core";
+
+// Lazy-loaded component variables (declared first, populated later)
+let HomeView: ComponentType = () => null;
+let SettingsView: ComponentType = () => null;
 
 // ── Home Plugin ────────────────────────────────────────────
 
@@ -17,10 +22,7 @@ const homePlugin: PluginManifest = {
   ],
 };
 
-// Lazy-loaded component to avoid circular deps
-let HomeView: React.ComponentType = () => null;
-
-export function setHomeComponent(component: React.ComponentType) {
+export function setHomeComponent(component: ComponentType) {
   HomeView = component;
 }
 
@@ -43,9 +45,7 @@ const settingsPlugin: PluginManifest = {
   ],
 };
 
-let SettingsView: React.ComponentType = () => null;
-
-export function setSettingsComponent(component: React.ComponentType) {
+export function setSettingsComponent(component: ComponentType) {
   SettingsView = component;
 }
 
