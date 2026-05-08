@@ -2,6 +2,7 @@ mod commands;
 mod db;
 
 use db::connection::Database;
+use tauri::Manager;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {

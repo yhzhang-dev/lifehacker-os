@@ -1,3 +1,4 @@
 - [Project Vision](project_vision.md) — Long-lived personal OS, not a typical app
 - [User Role](user_role.md) — Solo developer building a lifelong personal system
 - [Philosophy](philosophy.md) — Core engineering & design philosophy
+- [Session Feedback](feedback.md) — Initial scaffolding workflow lessons

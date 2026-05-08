@@ -5,7 +5,9 @@
   "identifier": "com.lifehacker.os",
   "build": {
     "frontendDist": "../dist",
-    "devUrl": "http://localhost:5173"
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "vite",
+    "beforeBuildCommand": "vite build"
   },
   "app": {
     "windows": [
