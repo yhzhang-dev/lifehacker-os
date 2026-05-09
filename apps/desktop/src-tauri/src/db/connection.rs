@@ -48,6 +48,17 @@ impl Database {
                 enabled INTEGER NOT NULL DEFAULT 1,
                 installed_at TEXT NOT NULL DEFAULT (datetime('now')),
                 config TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS entries (
+                id          TEXT PRIMARY KEY,
+                content     TEXT NOT NULL,
+                happened_at TEXT NOT NULL,
+                created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+                updated_at  TEXT NOT NULL DEFAULT (datetime('now')),
+                mood        INTEGER,
+                sleep_hours REAL,
+                energy      INTEGER
             );",
         )?;
 
