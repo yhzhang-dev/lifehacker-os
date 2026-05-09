@@ -2,3 +2,4 @@
 - [User Role](user_role.md) — Solo developer building a lifelong personal system
 - [Philosophy](philosophy.md) — Core engineering & design philosophy
 - [Session Feedback](feedback.md) — Initial scaffolding workflow lessons
+- [Daily Log Session](daily-log-session.md) — 2026-05-09 第一期 Daily Log 实现

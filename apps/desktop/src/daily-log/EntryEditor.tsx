@@ -95,17 +95,20 @@ export function EntryEditor({ initial, onSave, date, dayOfWeek }: EntryEditorPro
 
         {/* Energy */}
         <div className="flex items-center gap-1">
-          {[1, 2, 3].map((n) => (
-            <button
-              key={n}
-              onClick={() => setEnergy(energy === n ? null : n)}
-              className={`transition-opacity ${
-                energy !== null && energy >= n ? "opacity-100" : "opacity-30 hover:opacity-60"
-              }`}
-            >
-              {"⚡"}
-            </button>
-          ))}
+          {(["⚡", "⚡⚡", "⚡⚡⚡"] as const).map((label, i) => {
+            const n = i + 1;
+            return (
+              <button
+                key={n}
+                onClick={() => setEnergy(energy === n ? null : n)}
+                className={`transition-opacity ${
+                  energy === n ? "opacity-100" : "opacity-30 hover:opacity-60"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Save status */}

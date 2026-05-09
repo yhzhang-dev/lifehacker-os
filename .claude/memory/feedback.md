@@ -26,3 +26,8 @@ type: feedback
 - 用户坚持分层：.claude/（AI 空间）、docs/（文档）、apps/（应用）、packages/（模块）
 - Tauri 后端在 `apps/desktop/src-tauri/`
 - monorepo 使用 pnpm workspaces
+
+### Windows 开发注意事项
+- `VAR=value command` 语法在 Windows 上不工作，需用其他方式传环境变量（Rust `resolve_data_dir()` 自动发现项目根替代）
+- `sed -i` 在 Windows bash 中可用，但 Edit 工具遇到空格/缩进不匹配时可以用 Bash+sed 替代
+- Python sqlite3 模块内建可用，适合快速查数据库
