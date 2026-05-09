@@ -6,6 +6,18 @@ let currentViews: ViewRegistration[] = [];
 let currentViewId: string | null = null;
 const listeners = new Set<() => void>();
 
+// Exported for Sidebar and other navigation components
+export function getViews(): ViewRegistration[] {
+  return currentViews;
+}
+export function getActiveViewId(): string | null {
+  return currentViewId;
+}
+export function subscribe(fn: () => void): () => void {
+  listeners.add(fn);
+  return () => { listeners.delete(fn); };
+}
+
 function emit() {
   listeners.forEach((fn) => fn());
 }

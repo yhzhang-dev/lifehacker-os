@@ -1,4 +1,4 @@
-import { useState, useRef, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 
 interface EntryData {
   content: string;
@@ -21,7 +21,6 @@ export function EntryEditor({ initial, onSave, date, dayOfWeek }: EntryEditorPro
   const [energy, setEnergy] = useState<number | null>(initial.energy);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handleSave = async (e?: FormEvent) => {
     e?.preventDefault();
@@ -30,13 +29,6 @@ export function EntryEditor({ initial, onSave, date, dayOfWeek }: EntryEditorPro
     setSaving(false);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
-  };
-
-  // Auto-save on blur
-  const handleBlur = () => {
-    if (content !== initial.content || mood !== initial.mood) {
-      handleSave();
-    }
   };
 
   const [y, m, d] = date.split("-").map(Number);
@@ -56,10 +48,8 @@ export function EntryEditor({ initial, onSave, date, dayOfWeek }: EntryEditorPro
 
       {/* Editor */}
       <textarea
-        ref={textareaRef}
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        onBlur={handleBlur}
         placeholder="今天值得记的一件事是什么？"
         rows={6}
         className="w-full resize-none border-0 bg-transparent p-0 text-xl leading-relaxed text-foreground placeholder-muted-foreground/40 outline-none"
@@ -94,7 +84,7 @@ export function EntryEditor({ initial, onSave, date, dayOfWeek }: EntryEditorPro
             step={0.5}
             value={sleepHours ?? ""}
             onChange={(e) => setSleepHours(e.target.value ? parseFloat(e.target.value) : null)}
-            onBlur={handleBlur}
+    
             placeholder="--"
             className="w-10 border-0 bg-transparent p-0 text-center text-sm outline-none"
           />
@@ -105,7 +95,6 @@ export function EntryEditor({ initial, onSave, date, dayOfWeek }: EntryEditorPro
 
         {/* Energy */}
         <div className="flex items-center gap-1">
-          <span className="text-xs">⚡</span>
           {[1, 2, 3].map((n) => (
             <button
               key={n}
@@ -114,7 +103,7 @@ export function EntryEditor({ initial, onSave, date, dayOfWeek }: EntryEditorPro
                 energy !== null && energy >= n ? "opacity-100" : "opacity-30 hover:opacity-60"
               }`}
             >
-              {"⚡"[0]}
+              {"⚡"}
             </button>
           ))}
         </div>

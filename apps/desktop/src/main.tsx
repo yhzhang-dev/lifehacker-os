@@ -10,16 +10,16 @@ import "./index.css";
 // Register views
 registerViews([
   {
-    id: "daily-log",
-    label: "Daily Log",
-    position: "nav",
-    component: DailyLog,
-  },
-  {
     id: "home",
     label: "Home",
     position: "nav",
     component: HomeScreen,
+  },
+  {
+    id: "daily-log",
+    label: "Daily Log",
+    position: "nav",
+    component: DailyLog,
   },
 ]);
 

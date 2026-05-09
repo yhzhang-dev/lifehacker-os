@@ -1,10 +1,13 @@
-import type { ViewRegistration } from "@lifehacker/core";
+import { getViews, getActiveViewId, navigateTo, subscribe } from "../screen/ScreenManager";
+import { useState, useEffect } from "react";
 
 export function Sidebar() {
-  // TODO: Wire up to plugin registry
-  const views: ViewRegistration[] = [
-    { id: "home", label: "Home", position: "nav", component: () => null },
-  ];
+  const [, forceUpdate] = useState(0);
+
+  useEffect(() => subscribe(() => forceUpdate((n) => n + 1)), []);
+
+  const views = getViews().filter((v) => v.position === "nav");
+  const activeId = getActiveViewId();
 
   return (
     <nav className="flex w-48 flex-col border-r border-border bg-muted/20 p-2">
@@ -12,7 +15,12 @@ export function Sidebar() {
         {views.map((view) => (
           <button
             key={view.id}
-            className="rounded-md px-3 py-1.5 text-left text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+            onClick={() => navigateTo(view.id)}
+            className={`rounded-md px-3 py-1.5 text-left text-sm transition-colors ${
+              (activeId ?? views[0]?.id) === view.id
+                ? "bg-accent text-accent-foreground"
+                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+            }`}
           >
             {view.label}
           </button>

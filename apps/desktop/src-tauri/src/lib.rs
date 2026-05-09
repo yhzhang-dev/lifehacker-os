@@ -9,12 +9,9 @@ pub fn run() {
     tauri::Builder::default()
         .setup(|app| {
             // Initialize database
-            let app_data_dir = app
-                .path()
-                .app_data_dir()
-                .expect("failed to resolve app data dir");
+            let db_path = resolve_data_dir(app);
             let database =
-                Database::new(app_data_dir).expect("failed to initialize database");
+                Database::new(db_path).expect("failed to initialize database");
             app.manage(database);
 
             // Logging in debug mode
@@ -36,4 +33,26 @@ pub fn run() {
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
+}
+
+/// In development, walk up from CWD to find the project-root `data/` directory.
+/// In release, fall back to the platform-standard app data directory.
+fn resolve_data_dir(app: &tauri::App) -> std::path::PathBuf {
+    #[cfg(debug_assertions)]
+    {
+        if let Ok(cwd) = std::env::current_dir() {
+            let mut dir: Option<&std::path::Path> = Some(cwd.as_ref());
+            while let Some(d) = dir {
+                if d.join(".git").exists() {
+                    let data_dir = d.join("data");
+                    std::fs::create_dir_all(&data_dir).ok();
+                    return data_dir;
+                }
+                dir = d.parent();
+            }
+        }
+    }
+    app.path()
+        .app_data_dir()
+        .expect("failed to resolve app data dir")
 }
